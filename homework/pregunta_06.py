@@ -5,8 +5,29 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
+import csv
 def pregunta_06():
+    with open("files/input/data.csv", "r") as archivo:
+        lector = csv.reader(archivo, delimiter='\t')
+        contador = {}
+        for columna in lector:
+            if not columna:
+                continue
+            campos = columna[4].split(",")
+            for elemento in campos:
+                clave, valor = elemento.split(":")
+                valor = int(valor)
+                if clave in contador:
+                    contador[clave].append(valor)
+                else:
+                    contador[clave] = [valor]
+        resultado = []
+        for tripleletra, valores in sorted(contador.items()):
+            minimo = min(valores)
+            maximo = max(valores)
+            resultado.append((tripleletra, minimo, maximo))
+    return resultado
+    
     """
     La columna 5 codifica un diccionario donde cada cadena de tres letras
     corresponde a una clave y el valor despues del caracter `:` corresponde al

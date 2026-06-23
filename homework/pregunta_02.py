@@ -5,8 +5,23 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
+import csv
 def pregunta_02():
+    with open("files/input/data.csv", "r") as archivo:
+        lector = csv.reader(archivo, delimiter='\t')
+        contador = {}
+        for columna in lector:
+            if not columna.strip():
+                continue
+            letra = columna[0]
+            letra = columna.split('\t')[0]
+            if letra in contador:
+                contador[letra] += 1
+            else:
+                contador[letra] = 1
+        resultado = sorted(contador.items())
+    return resultado
+
     """
     Retorne la cantidad de registros por cada letra de la primera columna como
     la lista de tuplas (letra, cantidad), ordendas alfabéticamente.

@@ -5,8 +5,25 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
+import csv
 def pregunta_08():
+    with open("files/input/data.csv", "r") as archivo:
+        lector = csv.reader(archivo, delimiter='\t')
+        contador = {}
+        for columna in lector:
+            if not columna.strip():
+                continue
+            letra = columna[0]
+            valor = int(columna[1])
+            if valor in contador:
+                if letra not in contador[valor]:
+                    contador[valor].append(letra)
+            else:
+                contador[valor] = [letra]
+        resultado = []
+        for valor, letras in sorted(contador.items()):
+            resultado.append((valor, sorted(letras)))
+    return resultado
     """
     Genere una lista de tuplas, donde el primer elemento de cada tupla
     contiene  el valor de la segunda columna; la segunda parte de la tupla

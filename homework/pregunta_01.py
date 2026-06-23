@@ -6,8 +6,17 @@ utilizar pandas, numpy o scipy.
 """
 
 
+import csv
+    
 def pregunta_01():
-    """
+    suma = 0
+    with open("files/input/data.csv", "r") as archivo:
+        lector = csv.reader(archivo, delimiter='\t')
+        for columna in lector:
+            suma += int(columna[1])
+    return suma
+
+"""
     Retorne la suma de la segunda columna.
 
     Rta/

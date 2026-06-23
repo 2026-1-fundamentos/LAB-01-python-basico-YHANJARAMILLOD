@@ -5,8 +5,22 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
+import csv
 def pregunta_03():
+    with open("files/input/data.csv", "r") as archivo:
+        lector = csv.reader(archivo, delimiter='\t')
+        contador = {}
+        for columna in lector:
+            if not columna.strip():
+                continue
+            letra = columna[0]
+            valor = int(columna[1])
+            if letra in contador:
+                contador[letra] += valor
+            else:
+                contador[letra] = valor
+        resultado = sorted(contador.items())
+        return resultado
     """
     Retorne la suma de la columna 2 por cada letra de la primera columna como
     una lista de tuplas (letra, suma) ordendas alfabeticamente.

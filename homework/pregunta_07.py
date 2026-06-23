@@ -7,6 +7,29 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_07():
+    with open("files/input/data.csv", "r") as archivo:
+        agrupacion = {}
+        
+        for linea in archivo:
+            linea = linea.strip()
+            if not linea:
+                continue
+            columnas = linea.split('\t')
+            # Extraer la letra (índice 0) y el número (índice 1) convertido a entero
+            letra = columnas[0]
+            numero = int(columnas[1])
+            
+            # Agregar al diccionario
+            if numero in agrupacion:
+                agrupacion[numero].append(letra)
+            else:
+                agrupacion[numero] = [letra]
+                
+        # Ordenar el diccionario por las claves (los números) y convertir a lista de tuplas
+        resultado = sorted(agrupacion.items())
+        
+    return resultado
+
     """
     Retorne una lista de tuplas que asocien las columnas 0 y 1. Cada tupla
     contiene un valor posible de la columna 2 y una lista con todas las letras
