@@ -11,8 +11,7 @@ def pregunta_02():
         lector = csv.reader(archivo, delimiter='\t')
         contador = {}
         for columna in lector:
-            if not columna.strip():
-                continue
+            
             letra = columna[0]
             letra = columna.split('\t')[0]
             if letra in contador:

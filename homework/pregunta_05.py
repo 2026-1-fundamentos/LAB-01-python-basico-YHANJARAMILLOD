@@ -11,8 +11,7 @@ def pregunta_05():
         lector = csv.reader(archivo, delimiter='\t')
         contador = {}
         for columna in lector:
-            if not columna.strip():
-                continue
+            
             letra = columna[0]
             valor = int(columna[1])
             if letra in contador:

@@ -11,8 +11,7 @@ def pregunta_06():
         lector = csv.reader(archivo, delimiter='\t')
         contador = {}
         for columna in lector:
-            if not columna:
-                continue
+            
             campos = columna[4].split(",")
             for elemento in campos:
                 clave, valor = elemento.split(":")

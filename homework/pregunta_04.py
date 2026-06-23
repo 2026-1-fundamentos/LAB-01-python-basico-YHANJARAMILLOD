@@ -11,8 +11,7 @@ def pregunta_04():
         lector = csv.reader(archivo, delimiter='\t')
         contador = {}
         for columna in lector:
-            if not columna.strip():
-                continue
+            
             fecha = columna[2]
             mes = fecha.split('-')[1]
             if mes in contador:

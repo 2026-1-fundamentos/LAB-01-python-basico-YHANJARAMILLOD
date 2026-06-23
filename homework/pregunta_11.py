@@ -10,8 +10,7 @@ def pregunta_11():
     with open("files/input/data.csv", "r") as archivo:
         contador = {}
         for linea in archivo:
-            if not linea.strip():
-                continue
+            
             columna = linea.split('\t')
             letra = columna[3]
             valor = int(columna[1])

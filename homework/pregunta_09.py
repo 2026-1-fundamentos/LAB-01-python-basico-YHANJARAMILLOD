@@ -10,8 +10,7 @@ def pregunta_09():
     with open("files/input/data.csv", "r") as archivo:
         contador = {}
         for linea in archivo:
-            if not linea.strip():
-                continue
+            
             columna = linea.split('\t')
             clave = columna[4]
             if clave in contador:

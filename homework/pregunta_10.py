@@ -10,8 +10,7 @@ def pregunta_10():
     with open("files/input/data.csv", "r") as archivo:
         resultado = []
         for linea in archivo:
-            if not linea.strip():
-                continue
+            
             columna = linea.split('\t')
             letra = columna[0]
             cantidad_columna_4 = len(columna[3].split(','))

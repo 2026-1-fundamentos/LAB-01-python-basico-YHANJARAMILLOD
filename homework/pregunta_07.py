@@ -12,8 +12,7 @@ def pregunta_07():
         
         for linea in archivo:
             linea = linea.strip()
-            if not linea:
-                continue
+            
             columnas = linea.split('\t')
             # Extraer la letra (índice 0) y el número (índice 1) convertido a entero
             letra = columnas[0]

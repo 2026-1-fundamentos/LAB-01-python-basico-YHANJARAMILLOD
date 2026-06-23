@@ -10,8 +10,7 @@ def pregunta_12():
     with open("files/input/data.csv", "r") as archivo:
         contador = {}
         for linea in archivo:
-            if not linea.strip():
-                continue
+            
             columna = linea.split('\t')
             clave = columna[0]
             valor = sum(int(x) for x in columna[4].split(','))
