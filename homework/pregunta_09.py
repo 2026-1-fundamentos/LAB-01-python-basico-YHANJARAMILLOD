@@ -10,13 +10,14 @@ def pregunta_09():
     with open("files/input/data.csv", "r") as archivo:
         contador = {}
         for linea in archivo:
-            
             columna = linea.split('\t')
-            clave = columna[4]
-            if clave in contador:
-                contador[clave] += 1
-            else:
-                contador[clave] = 1
+            pares = columna[4].split(',')
+            for par in pares:
+                clave = par.split(':')[0]
+                if clave in contador:
+                    contador[clave] += 1
+                else:
+                    contador[clave] = 1
     return contador 
 
     """

@@ -10,14 +10,14 @@ def pregunta_11():
     with open("files/input/data.csv", "r") as archivo:
         contador = {}
         for linea in archivo:
-            
             columna = linea.split('\t')
-            letra = columna[3]
+            letras = columna[3].split(',')
             valor = int(columna[1])
-            if letra in contador:
-                contador[letra] += valor
-            else:
-                contador[letra] = valor
+            for letra in letras:
+                if letra in contador:
+                    contador[letra] += valor
+                else:
+                    contador[letra] = valor
     return dict(sorted(contador.items()))
     """
     Retorne un diccionario que contengan la suma de la columna 2 para cada
